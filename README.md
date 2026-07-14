@@ -72,7 +72,6 @@ go run worker.go -id=worker_0              # resumes from step 300 (last checkpo
 | Dedup at step 1000 (5 of 7 tensors stable) | **71.4%** |
 | Failover detection time | ≤ 5 seconds |
 | Write-to-commit latency (3 nodes, localhost) | < 5 ms |
-| Miller-Rabin primality (100k numbers) | ~2–3 s, zero false positives |
 
 The model has 7 named tensors (embedding table, 3 layers × weight+bias). The embedding table (~256 KB, largest tensor) and early-layer weights stabilize first, which is why the dedup ratio jumps sharply between steps 200–400 and then plateaus.
 
