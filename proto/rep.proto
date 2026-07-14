@@ -1,0 +1,73 @@
+syntax = "proto3";
+
+package pb;
+
+option go_package = "/filesystem";
+
+
+// -------- Recovery --------
+
+
+
+message RecoveryRequest {
+  string serverId = 1;
+}
+
+message Replication {
+  string filename = 1;
+  int32 version = 2;
+  bytes content = 3;
+}
+
+message LogEntry {
+  int32 index = 1;
+  string op = 2;
+  string filename = 3;
+  bytes content = 4;
+  int32 version = 5;
+}
+
+message UpdateMessage {
+  bool isFullSync = 1;
+  repeated LogEntry logEntries = 2;
+  repeated Replication fullFiles = 3;
+}
+
+
+// -------- Heartbeat --------
+message Heartbeat {
+  string primaryId = 1;
+  int64 timestamp = 2;
+}
+
+message HeartbeatResponse {
+  bool success = 1;
+}
+
+
+// -------- AppendEntries --------
+message AppendEntriesRequest {
+  string leaderId = 1;
+  repeated LogEntry entries = 2;
+  int32 leaderCommit = 3; //highest log index that is replicated by majority
+
+}
+
+message AppendEntriesResponse {
+  bool success = 1;
+}
+
+// -------- Service --------
+service ReplicationService {
+  rpc AppendEntries(AppendEntriesRequest) returns (AppendEntriesResponse);
+
+}
+
+service RecoveryService {
+  rpc RequestRecovery(RecoveryRequest)
+      returns (UpdateMessage);
+}
+
+service HeartbeatService {
+  rpc SendHeartbeat(Heartbeat) returns (HeartbeatResponse);
+}

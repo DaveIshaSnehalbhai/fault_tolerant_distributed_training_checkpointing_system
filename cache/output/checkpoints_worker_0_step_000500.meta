@@ -1,0 +1,52 @@
+{
+  "worker_id": "worker_0",
+  "step": 500,
+  "saved_at": "2026-07-14T14:35:52.5763936+05:30",
+  "tensor_map": {
+    "embedding.weight": "0ddd1abd367cfc8c4ce90ad1defc0f95dd0df15e04d3a885dcb99d74c2f5053f",
+    "layer0.bias": "239f50d51f24f442e5b0017c53570ad5ae8a494d3bbac3411bc0511470463343",
+    "layer0.weight": "e750c7ae4b0704e725f25bfb166110918a37eea7529b797ff24c7e967b1e6448",
+    "layer1.bias": "17ca25a6060f5f331db1c4655e842e35c4dcca0c846d30b2c993a4d70f7ed738",
+    "layer1.weight": "fc6fd3f66cfd311a859535d503ff0f2b6913c4d5790dad4bd877f40b9fc0453f",
+    "layer2.bias": "262d8cb0b8d568ffc6c235f598da9c4208db2c09a5aa7de16e71e9e1df6ccb97",
+    "layer2.weight": "e172224729bc3c007d26e66672a916b3ecd51ade5e4822bbeae815a2cf429697"
+  },
+  "shape_map": {
+    "embedding.weight": [
+      1000,
+      64
+    ],
+    "layer0.bias": [
+      256
+    ],
+    "layer0.weight": [
+      128,
+      256
+    ],
+    "layer1.bias": [
+      128
+    ],
+    "layer1.weight": [
+      256,
+      128
+    ],
+    "layer2.bias": [
+      10
+    ],
+    "layer2.weight": [
+      128,
+      10
+    ]
+  },
+  "dtype_map": {
+    "embedding.weight": "float32",
+    "layer0.bias": "float32",
+    "layer0.weight": "float32",
+    "layer1.bias": "float32",
+    "layer1.weight": "float32",
+    "layer2.bias": "float32",
+    "layer2.weight": "float32"
+  },
+  "new_tensors": 4,
+  "total_tensors": 7
+}

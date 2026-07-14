@@ -1,0 +1,18 @@
+syntax = "proto3";
+
+package pb;
+
+option go_package = "./filesystem";
+
+message SnapshotRequest {
+    string snapshot_id = 1;
+}
+
+message SnapshotResponse {
+    bool success = 1;
+}
+
+service SnapshotService {
+    rpc InitiateSnapshot(SnapshotRequest) returns (SnapshotResponse);
+    rpc SendMarker(SnapshotRequest) returns (SnapshotResponse);
+}
